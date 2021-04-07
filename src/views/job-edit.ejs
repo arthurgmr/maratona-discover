@@ -27,17 +27,12 @@
     
   </head>
   <body id="page-job-edit">
-    <header class="page-header inner">
-      <div class="container animate-up">
-        <a href="/" class="back">
-          <img src="/images/back.svg" alt="" />
-        </a>
-        <h1>Editar Job</h1>
-      </div>
-    </header>
+    
+    <%- include("parts/page-header", { title: 'Editar Job'}) %> 
 
     <div class="container flex animate-up delay-2">
-        <form id="form-job" action="/job/edit" method="post">
+
+        <form id="form-job" action="/job/<%= job.id %>" method="POST">
           <fieldset>
             <legend>Dados do Job</legend>
             <div class="separator light"></div>
@@ -71,7 +66,7 @@
                   type="number"
                   id="total-hours" 
                   name="total-hours"
-                  value="<%= job["total-hours"] %> " />
+                  value="<%= job["total-hours"] %>" />
               </div>
             </div>
           </fieldset>
@@ -123,7 +118,7 @@
       </div>
       <form 
         method="post" 
-        action="/job/delete/{JOBID}" 
+        action="/job/delete/<%= job.id %>" 
         id="delete-job"></form>
     </div>
     <!-- end modal-wrapper -->
